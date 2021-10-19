@@ -5,7 +5,11 @@
   "license": "MIT",
   "scripts": {
     "dev:server": "tsnd --respawn --transpile-only --ignore-watch node_modules --exit-child --clear -r tsconfig-paths/register src/shared/infra/http/server.ts",
-    "lint": "eslint src --max-warnings=0"
+    "lint": "eslint src --max-warnings=0",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "src/**/*": "yarn lint --fix"
   },
   "dependencies": {
     "express": "^4.17.1"
@@ -19,6 +23,8 @@
     "eslint-import-resolver-typescript": "^2.5.0",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^7.0.0",
+    "lint-staged": "^11.2.3",
     "prettier": "^2.4.1",
     "ts-node-dev": "^1.1.8",
     "tsconfig-paths": "^3.11.0",
